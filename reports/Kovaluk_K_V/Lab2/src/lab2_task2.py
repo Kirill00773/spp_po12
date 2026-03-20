@@ -38,9 +38,8 @@ class Driver(Person):
         if self.assigned_car:
             print(f"Водитель {self.name}: автомобиль {self.assigned_car.model} исправен, ремонт не требуется.")
             return False
-
-            print(f"Водитель {self.name}: за мной не закреплен автомобиль.")
-            return False
+        print(f"Водитель {self.name}: за мной не закреплен автомобиль.")
+        return False
 
     def complete_trip(self, trip, car_condition_ok=True):
         if trip.assigned_driver == self and trip.status == TripStatus.ASSIGNED:
@@ -52,9 +51,8 @@ class Driver(Person):
                 self.assigned_car.status = CarStatus.BROKEN
                 print(f"Водитель {self.name} отметил, что автомобиль {self.assigned_car.model} неисправен.")
             return True
-        
-            print(f"Ошибка: Рейс {trip.trip_id} не может быть завершен водителем {self.name}.")
-            return False
+        print(f"Ошибка: Рейс {trip.trip_id} не может быть завершен водителем {self.name}.")
+        return False
 
     def __str__(self):
         status = "активен" if self.is_active else "отстранен"
@@ -96,14 +94,17 @@ class Dispatcher(Person):
     def add_driver(self, driver):
         self._drivers.append(driver)
         print(f"Диспетчер {self.name}: Водитель {driver.name} добавлен в систему.")
+        return True
 
     def add_car(self, car):
         self._cars.append(car)
         print(f"Диспетчер {self.name}: Автомобиль {car.model} добавлен в автопарк.")
+        return True
 
     def add_trip_request(self, trip):
         self._trips.append(trip)
         print(f"Диспетчер {self.name}: Поступила заявка на рейс {trip.trip_id} до {trip.destination}.")
+        return True
 
     def assign_trip(self, trip_id, driver_id, car_license):
         trip = next((t for t in self._trips if t.trip_id == trip_id), None)
@@ -136,9 +137,8 @@ class Dispatcher(Person):
             driver.is_active = False
             print(f"Диспетчер {self.name}: Водитель {driver.name} отстранен от работы.")
             return True
-
-            print(f"Ошибка: Водитель с ID {driver_id} не найден.")
-            return False
+        print(f"Ошибка: Водитель с ID {driver_id} не найден.")
+        return False
 
     def process_repair_request(self, driver_id):
         driver = next((d for d in self._drivers if d.person_id == driver_id), None)
@@ -149,9 +149,8 @@ class Dispatcher(Person):
             car.status = CarStatus.OK
             print(f"Диспетчер {self.name}: Автомобиль {car.model} отремонтирован и снова готов к работе.")
             return True
-
-            print(f"Диспетчер {self.name}: Заявка на ремонт от {driver.name} не может быть обработана.")
-            return False
+        print(f"Диспетчер {self.name}: Заявка на ремонт от {driver.name} не может быть обработана.")
+        return False
 
     def show_system_state(self):
         print("\n" + "=" * 50)
