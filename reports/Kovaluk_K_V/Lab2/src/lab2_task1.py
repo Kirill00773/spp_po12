@@ -1,4 +1,10 @@
 class CharSet:
+    def get_items(self):
+        return self._items.copy()
+
+    def get_max_size(self):
+        return self._max_size
+
     def __init__(self, max_size=10, initial_chars=None):
         self._max_size = max_size
         self._items = []
@@ -34,22 +40,22 @@ class CharSet:
         return char in self._items
 
     def union(self, other):
-        combined_chars = list(set(self._items + other._items))
-        new_set = CharSet(max(self._max_size, other._max_size))
+        combined_chars = list(set(self.get_items() + other.get_items()))
+        new_set = CharSet(max(self.get_max_size(), other.get_max_size()))
         for char in combined_chars:
             new_set.add(char)
         return new_set
 
     def intersection(self, other):
-        intersected_chars = [char for char in self._items if char in other._items]
-        new_set = CharSet(min(self._max_size, other._max_size))
+        intersected_chars = [char for char in self.get_items() if char in other.get_items()]
+        new_set = CharSet(min(self.get_max_size(), other.get_max_size()))
         for char in intersected_chars:
             new_set.add(char)
         return new_set
 
     def difference(self, other):
-        diff_chars = [char for char in self._items if char not in other._items]
-        new_set = CharSet(self._max_size)
+        diff_chars = [char for char in self.get_items() if char not in other.get_items()]
+        new_set = CharSet(self.get_max_size())
         for char in diff_chars:
             new_set.add(char)
         return new_set

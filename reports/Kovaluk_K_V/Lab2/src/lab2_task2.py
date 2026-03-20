@@ -1,5 +1,4 @@
 from enum import Enum
-from datetime import datetime
 
 
 class CarStatus(Enum):
@@ -36,10 +35,10 @@ class Driver(Person):
         if self.assigned_car and self.assigned_car.status == CarStatus.BROKEN:
             print(f"Водитель {self.name} заявляет о поломке автомобиля {self.assigned_car.model}.")
             return True
-        elif self.assigned_car:
+        if self.assigned_car:
             print(f"Водитель {self.name}: автомобиль {self.assigned_car.model} исправен, ремонт не требуется.")
             return False
-        else:
+
             print(f"Водитель {self.name}: за мной не закреплен автомобиль.")
             return False
 
@@ -53,7 +52,7 @@ class Driver(Person):
                 self.assigned_car.status = CarStatus.BROKEN
                 print(f"Водитель {self.name} отметил, что автомобиль {self.assigned_car.model} неисправен.")
             return True
-        else:
+        
             print(f"Ошибка: Рейс {trip.trip_id} не может быть завершен водителем {self.name}.")
             return False
 
@@ -137,7 +136,7 @@ class Dispatcher(Person):
             driver.is_active = False
             print(f"Диспетчер {self.name}: Водитель {driver.name} отстранен от работы.")
             return True
-        else:
+
             print(f"Ошибка: Водитель с ID {driver_id} не найден.")
             return False
 
@@ -150,7 +149,7 @@ class Dispatcher(Person):
             car.status = CarStatus.OK
             print(f"Диспетчер {self.name}: Автомобиль {car.model} отремонтирован и снова готов к работе.")
             return True
-        else:
+
             print(f"Диспетчер {self.name}: Заявка на ремонт от {driver.name} не может быть обработана.")
             return False
 
