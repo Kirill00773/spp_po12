@@ -93,7 +93,7 @@ def analyze_user(github_username):
 
 def save_graph(G):
     data = nx.readwrite.json_graph.node_link_data(G)
-    with open("github_network.json", "w") as f:
+    with open("github_network.json", "w", encoding='utf-8') as f:
         json.dump(data, f, indent=4)
 
     print("Граф сохранён в github_network.json")
