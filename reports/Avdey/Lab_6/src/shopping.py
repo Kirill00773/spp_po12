@@ -20,12 +20,11 @@ class Cart:
             item["price"] *= 1 - percent / 100
 
 
-# Глобальный словарь купонов на уровне модуля
+
 coupons = {"SAVE10": 10, "HALF": 50}
 
 
 def apply_coupon(cart, coupon_code):
-    global coupons  # явное указание на глобальный словарь
     if coupon_code in coupons:
         cart.apply_discount(coupons[coupon_code])
     else:

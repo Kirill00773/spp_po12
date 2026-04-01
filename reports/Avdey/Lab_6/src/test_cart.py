@@ -1,15 +1,18 @@
+from unittest.mock import patch
+
 import pytest
+
 import shopping
 from shopping import Cart, apply_coupon, log_purchase
-from unittest.mock import patch
 from lab_1 import all_elements_equal, find_two_sum
+from task_3 import repeat
 
 # Задание 1
 
 
 # 3. Фикстура для пустой корзины
-@pytest.fixture
-def empty_cart():
+@pytest.fixture(name="empty_cart")
+def fixture_empty_cart():
     return Cart()
 
 

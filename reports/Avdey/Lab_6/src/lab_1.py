@@ -3,8 +3,8 @@ def all_elements_equal(data: list) -> bool:
 
 
 def find_two_sum(arr: list[int], target: int) -> list[int] | None:
-    for i in range(len(arr)):
-        for j in range(i + 1, len(arr)):
-            if arr[i] + arr[j] == target:
+    for i, first in enumerate(arr):
+        for j, second in enumerate(arr[i + 1:], start=i + 1):
+            if first + second == target:
                 return [i, j]
     return None
