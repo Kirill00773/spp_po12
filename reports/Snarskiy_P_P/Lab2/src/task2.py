@@ -22,7 +22,7 @@ class Course:
             print(f"{student.name} is studying...")
 
 
-class Teacher():
+class Teacher:
     """Teacher class"""
 
     def __init__(self, name):
@@ -33,7 +33,9 @@ class Teacher():
 
         mark = Mark(student, course, value)
         Archive.add_record(mark)
-        print(f"{self.name} gave mark {mark.value} to {student.name} for course {course.name}")
+        print(
+            f"{self.name} gave mark {mark.value} to {student.name} for course {course.name}"
+        )
 
     def show_teacher(self):
         """Showing teacher"""
@@ -41,7 +43,7 @@ class Teacher():
         print(f"\nTeacher {self.name} is teaching...")
 
 
-class Student():
+class Student:
     """Student class"""
 
     def __init__(self, name):

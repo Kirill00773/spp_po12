@@ -2,19 +2,20 @@
 Make class of triangle
 """
 
-
 import math
 
 
 class Triangle:
     """Class Triangle"""
+
     def __init__(self, a=5, b=5, c=5):
         self.a = a
         self.b = b
         self.c = c
         self.perimeter = self.a + self.b + self.c
         self.area = math.sqrt(
-            self.perimeter / 2
+            self.perimeter
+            / 2
             * (self.perimeter / 2 - self.a)
             * (self.perimeter / 2 - self.b)
             * (self.perimeter / 2 - self.c)
@@ -38,10 +39,14 @@ class Triangle:
 def main():
     """Main function"""
     triangle_1 = Triangle(
-        int(input("Enter side a ")), int(input("Enter side b ")), int(input("Enter side c "))
+        int(input("Enter side a ")),
+        int(input("Enter side b ")),
+        int(input("Enter side c ")),
     )
     triangle_2 = Triangle(
-        int(input("Enter side a ")), int(input("Enter side b ")), int(input("Enter side c "))
+        int(input("Enter side a ")),
+        int(input("Enter side b ")),
+        int(input("Enter side c ")),
     )
     print(triangle_1)
     print(triangle_2)
