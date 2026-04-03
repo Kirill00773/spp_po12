@@ -26,7 +26,7 @@ class RotatingLine:
 
         x2, y2 = self.get_end()
 
-        color = "#{:06x}".format(random.randint(0, 0xFFFFFF))
+        color = f"#{random.randint(0, 0xFFFFFF):06x}"
 
         if self.line:
             self.canvas.delete(self.line)
@@ -44,21 +44,20 @@ def draw_tree(canvas, x, y, length, angle, depth):
     canvas.create_line(x, y, x2, y2, fill="green")
 
     draw_tree(canvas, x2, y2, length * 0.7, angle + math.pi / 6, depth - 1)
-
     draw_tree(canvas, x2, y2, length * 0.7, angle - math.pi / 6, depth - 1)
 
 
 class App:
-    def __init__(self, root):
-        self.root = root
+    def __init__(self, root_window):
+        self.root = root_window
         self.root.title("ЛР7 - Вариант 5")
 
-        self.canvas = tk.Canvas(root, width=WIDTH, height=HEIGHT, bg="white")
+        self.canvas = tk.Canvas(root_window, width=WIDTH, height=HEIGHT, bg="white")
         self.canvas.pack()
 
         self.line = RotatingLine(self.canvas, WIDTH // 2, HEIGHT // 2, 150)
 
-        frame = tk.Frame(root)
+        frame = tk.Frame(root_window)
         frame.pack()
 
         self.running = True
@@ -93,6 +92,6 @@ class App:
         self.root.after(50, self.animate)
 
 
-root = tk.Tk()
-app = App(root)
-root.mainloop()
+main_root = tk.Tk()
+app = App(main_root)
+main_root.mainloop()

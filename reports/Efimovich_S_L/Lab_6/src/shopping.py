@@ -1,3 +1,6 @@
+import requests
+
+
 class Cart:
     def __init__(self):
         self.items = []
@@ -16,9 +19,6 @@ class Cart:
 
         for item in self.items:
             item["price"] *= 1 - percent / 100
-
-
-import requests
 
 
 def log_purchase(item):
