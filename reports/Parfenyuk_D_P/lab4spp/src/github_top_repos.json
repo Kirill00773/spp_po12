@@ -2,65 +2,65 @@
     {
         "name": "ValveSoftware/Proton",
         "description": "Compatibility tool for Steam Play based on Wine and additional components",
-        "stars": 30613,
+        "stars": 30619,
         "forks": 1368,
-        "last_commit": "2026-03-29T02:52:48Z"
+        "last_commit": "2026-03-31T01:06:52Z"
     },
     {
         "name": "BeyondDimension/SteamTools",
         "description": "🛠「Watt Toolkit」是一个开源跨平台的多功能 Steam 工具箱。",
-        "stars": 24945,
+        "stars": 24948,
         "forks": 1604,
         "last_commit": "2026-03-11T16:59:36Z"
     },
     {
         "name": "moonlight-stream/moonlight-qt",
         "description": "GameStream client for PCs (Windows, Mac, Linux, and Steam Link)",
-        "stars": 16673,
-        "forks": 1007,
+        "stars": 16677,
+        "forks": 1009,
         "last_commit": "2026-03-29T03:01:16Z"
     },
     {
         "name": "JustArchiNET/ArchiSteamFarm",
         "description": "C# application with primary purpose of farming Steam cards from multiple accounts simultaneously.",
-        "stars": 13186,
+        "stars": 13189,
         "forks": 1098,
-        "last_commit": "2026-03-30T14:02:21Z"
+        "last_commit": "2026-03-31T06:02:21Z"
     },
     {
         "name": "Heroic-Games-Launcher/HeroicGamesLauncher",
         "description": "A games launcher for GOG, Amazon and Epic Games for Linux, Windows and macOS.",
-        "stars": 11103,
-        "forks": 587,
-        "last_commit": "2026-03-29T14:37:59Z"
+        "stars": 11105,
+        "forks": 589,
+        "last_commit": "2026-03-31T06:39:10Z"
     },
     {
         "name": "XIU2/UserScript",
         "description": "🐵 自用的一些乱七八糟 油猴脚本~ ",
-        "stars": 9501,
+        "stars": 9504,
         "forks": 675,
-        "last_commit": "2026-03-30T15:40:30Z"
+        "last_commit": "2026-03-31T05:58:03Z"
     },
     {
         "name": "ublue-os/bazzite",
         "description": "Bazzite makes gaming and everyday use smoother and simpler across desktop PCs, handhelds, tablets, and home theater PCs.",
         "stars": 8158,
-        "forks": 800,
-        "last_commit": "2026-03-30T06:13:51Z"
+        "forks": 802,
+        "last_commit": "2026-03-31T08:04:40Z"
     },
     {
         "name": "gibbed/SteamAchievementManager",
         "description": "A manager for game achievements in Steam.",
-        "stars": 8054,
-        "forks": 785,
+        "stars": 8059,
+        "forks": 786,
         "last_commit": "2026-03-19T09:35:09Z"
     },
     {
         "name": "turbot/steampipe",
         "description": "Zero-ETL, infinite possibilities. Live query APIs, code & more with SQL. No DB required.",
-        "stars": 7740,
+        "stars": 7743,
         "forks": 332,
-        "last_commit": "2026-03-30T13:24:21Z"
+        "last_commit": "2026-03-31T06:55:46Z"
     },
     {
         "name": "tobspr-games/shapez.io",
