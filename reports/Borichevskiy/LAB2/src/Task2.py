@@ -80,12 +80,13 @@ class CreditCard:
         print(f"Card {self.card_number}: blocked")
 
     def __str__(self) -> str:
-        +
-        return f"Card {self.card_number}: limit={self.limit}, " f"debt={self.balance}, status={self.status.value}"
+        return (
+            f"Card {self.card_number}: limit={self.limit}, "
+            f"debt={self.balance}, status={self.status.value}"
+        )
 
 
 class BankAccount:
-
     def __init__(self, account_number: str, initial_balance: float = 0.0):
         self.account_number = account_number
         self._balance = initial_balance
@@ -122,8 +123,10 @@ class BankAccount:
         print(f"Account {self.account_number}: closed")
 
     def __str__(self) -> str:
-        +
-        return f"Account {self.account_number}: balance={self._balance}, " f"status={self.status.value}"
+        return (
+            f"Account {self.account_number}: balance={self._balance}, "
+            f"status={self.status.value}"
+        )
 
 
 class User(ABC):
@@ -191,7 +194,7 @@ class Client(User):
             print(f"{self.name}: no account assigned")
             return False
 
-        print(f"\nTransferring {amount} RUB to account {target_account.account_number} ")
+        print(f"\nTransferring {amount} RUB to account {target_account.account_number}")
         if self.account.withdraw(amount):
             target_account.deposit(amount)
             print("Transfer completed!")
@@ -232,59 +235,48 @@ if __name__ == "__main__":
     print("TASK 2: PAYMENT SYSTEM DEMONSTRATION")
     print("=" * 60)
 
-    # Create users
     client1 = Client("C001", "Ivan Petrov")
     admin = Administrator("A001", "System Admin")
 
     print(f"\n{client1}")
     print(f"{admin}")
 
-    # Create accounts and cards
     account1 = BankAccount("40817810000000000001", 10000.0)
     account2 = BankAccount("40817810000000000002", 5000.0)
     card1 = CreditCard("4276123456789012", 50000.0)
 
-    # Assign to client
     print("\nAssigning accounts and cards")
     client1.assign_account(account1)
     client1.assign_card(card1)
 
-    # Create orders
     order1 = Order("ORD-001", 3000.0, "Laptop")
     order2 = Order("ORD-002", 500.0, "Mouse")
 
     print(f"\n{order1}")
     print(f"{order2}")
 
-    # Pay order from account
     client1.pay_order(order1)
     print(f"\nCurrent account balance: {account1.balance} RUB")
 
-    # Pay order by card
     client1.pay_order_by_card(order2)
     print(f"\nCurrent card debt: {card1.balance} RUB")
 
-    # Transfer to another account
     client1.transfer_to_account(account2, 2000.0)
     print(f"\nAccount 1 balance: {account1.balance} RUB")
     print(f"Account 2 balance: {account2.balance} RUB")
 
-    # Simulate credit limit exceed
     print("\n--- Simulating credit limit exceed ---")
     big_order = Order("ORD-003", 50000.0, "Car")
-    client1.pay_order_by_card(big_order)  # Exhaust limit
+    client1.pay_order_by_card(big_order)
 
-    # Admin check
     admin.block_card_for_debt(card1)
 
-    # Attempt payment with blocked card
     order3 = Order("ORD-004", 1000.0, "Fuel")
     client1.pay_order_by_card(order3)
 
-    # Self-block and account closure
-    print("\n---  Closing ac ---")
+    print("\n--- Closing account ---")
     client1.close_account()
 
     print("\n" + "=" * 60)
-    print("DEMONSTRATION COMPLET")
+    print("DEMONSTRATION COMPLETE")
     print("=" * 60)
