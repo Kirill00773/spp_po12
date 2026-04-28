@@ -274,7 +274,7 @@ if __name__ == "__main__":
     order3 = Order("ORD-004", 1000.0, "Fuel")
     client1.pay_order_by_card(order3)
 
-    print("\n--- Closing account ---")
+    print("\n---Closing account---")
     client1.close_account()
 
     print("\n" + "=" * 60)
